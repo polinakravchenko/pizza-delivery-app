@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import UserTabs from "@/app/components/layout/UserTabs";
 
 export default function ProfilePage() {
     const session = useSession();
@@ -12,6 +13,8 @@ export default function ProfilePage() {
     const [phone, setPhone] = useState('');
     const [streetAddress, setStreetAddress] = useState('');
     const [city, setCity] = useState('');
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [profileFetched, setProfileFetched] = useState(false);
     const {status} = session;
 
     useEffect(() => {
@@ -22,6 +25,8 @@ export default function ProfilePage() {
             setPhone(data.phone);
             setStreetAddress(data.streetAddress);
             setCity(data.city);
+            setIsAdmin(data.admin);
+            setProfileFetched(true);
           })
         });
       }
@@ -54,7 +59,7 @@ export default function ProfilePage() {
         })
     }
   
-    if (status === 'loading') {
+    if (status === 'loading' || !profileFetched) {
       return 'Loading...';
     }
   
@@ -66,10 +71,8 @@ export default function ProfilePage() {
   
     return (
       <section className="mt-8">
-        <h1 className="text-center text-red-600 text-4xl mb-4">
-            Profile
-        </h1>
-        <div className="max-w-lg mx-auto">
+        <UserTabs isAdmin={isAdmin}/>
+          <div className="max-w-lg mx-auto">
              <div className="flex gap-6 items-center">
                 <div>
                     <div className="bg-gray-300 p-2 rounded-lg items-center">
