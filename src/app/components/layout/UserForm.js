@@ -5,7 +5,8 @@ import {useProfile} from "../UseProfile";
 import { useState } from "react";
 
 
-export default function UserForm({user,onSave}) {
+export default function UserForm({user, onSave}) {
+
     const [userName, setUserName] = useState(user?.name || '');
     const [phone, setPhone] = useState(user?.phone || '');
     const [streetAddress, setStreetAddress] = useState(user?.streetAddress || '');

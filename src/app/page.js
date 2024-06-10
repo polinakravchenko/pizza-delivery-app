@@ -8,20 +8,19 @@ export default function Home() {
     <>
       <Hero/>
       <HomeMenu/>
-      <section className="text-center my-8">
+      <section className="text-center my-8" id="about">
         <SectionHeaders
         subHeader={'Our story'}
         mainHeader={'About us'}
         />
         <div className="text-gray-500 max-w-md mx-auto mt-4 flex flex-col gap-4">
         <p>
-          Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+        Welcome to MykoPizza, where passion for authentic flavors meets the art of pizza-making. Our dedicated team uses the freshest ingredients to craft delicious, hand-tossed pizzas that bring a slice of happiness to your table. Join us for a delightful culinary experience that celebrates tradition and taste.
         </p>
         </div>
       </section>
-      <section className="text-center my-8">
+      <section className="text-center my-8" id="contacts">
         <SectionHeaders 
-        sunHeader={'Don\'t hesitate'}
         mainHeader={'Contact us'}/>
         <div className="mt-8 relative">
         <a className="text-2xl underline text-gray-500" href="tel:+380660375234">

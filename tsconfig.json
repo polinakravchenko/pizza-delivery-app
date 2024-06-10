@@ -30,7 +30,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "lib/swagger.js"  ],
   "exclude": [
     "node_modules"
   ]

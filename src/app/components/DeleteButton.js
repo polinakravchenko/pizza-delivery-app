@@ -18,7 +18,7 @@ export default function DeleteButton({label,onDelete}) {
                   setShowConfirm(false);
                 }}
                 type="button"
-                className="primary">
+                className="bg-red-600">
                 Yes,&nbsp;delete!
               </button>
             </div>
