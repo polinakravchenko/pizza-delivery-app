@@ -1,3 +1,5 @@
+MykoPizza is an dynamic web application developed as a student project, showcasing capabilities of modern web development technologies. Leveraging the powerful NextJS 14 framework for its server-side rendering and static site generation capabilities, the app ensures a fast and seamless user experience. The robust and scalable MongoDB database is utilized for efficient data management, allowing for smooth handling of user and menu data. The user interface is elegantly styled using Tailwind CSS, providing a visually appealing and highly customizable design.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -34,3 +36,48 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Using the app
+
+![alt text](image.png)
+
+The application has two options for use:
+
+-Administrative page
+-User-client
+
+To use the administrative page, you must have the status "admin", which is assigned manually in the userInfos data collection.
+With "admin" status, the user can add categories:
+
+![alt text](image-1.png)
+
+Add dishes to the menu (pizzas):
+
+![alt text](image-2.png)
+
+Edit information about service users:
+
+![alt text](image-3.png)
+
+In the application, you can order dishes from the menu, which is previously added by the "admin". When ordering, the user can choose the size of the pizza, additional ingredients, etc.
+
+![alt text](image-4.png)
+
+All dishes on the menu are divided into categories:
+
+![alt text](image-5.png)
+![alt text](image-6.png)
+
+Next, the user can go to the cart, where he or she will see the selected dishes for ordering, as well as a form for entering information for delivery:
+
+![alt text](image-7.png)
+
+## Swagger UI
+
+To view the Swagger UI, an extension was installed in Visual Studio Code - Swagger Previewer.
+
+Created route.js file for Swagger. A swagger.yaml file was also created, which describes all the components, object models used to manage data in various application endpoints.
+
+![alt text](image-8.png)
+![alt text](image-9.png)
+![alt text](image-10.png)
