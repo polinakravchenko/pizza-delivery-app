@@ -1,0 +1,289 @@
+openapi: 3.0.0
+info:
+  title: MykoPizza API
+  description: API documentation for MykoPizza API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api/
+tags:
+  - name: menu-items
+    description: Everything about your menu items (pizzas)
+  - name: categories
+    description: Everything about categories of dishes
+  - name: orders
+    description: Get information about orders
+  - name: users
+    description: Get a list of existing users
+  - name: users information
+    description: Operations with user information in profile
+paths:
+  /menu-items:
+    get:
+      tags:
+        - menu-items
+      summary: Get all menu items
+      responses:
+        '200':
+          description: A list of menu items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MenuItem'
+    post:
+      tags:
+        - menu-items
+      summary: Create a new menu item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenuItem'
+      responses:
+        '200':
+          description: Created
+    put:
+      tags:
+        - menu-items
+      summary: Update an existing menu item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenuItem'
+      responses:
+        '200':
+          description: Menu item updated successfully
+    delete:
+      tags:
+        - menu-items
+      summary: Delete a menu item
+      parameters:
+        - in: query
+          name: _id
+          schema:
+            type: string
+          required: true
+          description: ID of the menu item to delete
+      responses:
+        '200':
+          description: Menu item deleted successfully
+  /categories:
+    get:
+      tags:
+        - categories
+      summary: Get all categories
+      responses:
+        '200':
+          description: A list of categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+    post:
+      tags:
+        - categories
+      summary: Create a new category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: Category created successfully
+    put:
+      tags:
+        - categories
+      summary: Update an existing category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: Category updated successfully
+    delete:
+      tags:
+        - categories
+      summary: Delete a category
+      parameters:
+        - in: query
+          name: _id
+          schema:
+            type: string
+          required: true
+          description: ID of the category to delete
+      responses:
+        '200':
+          description: Category deleted successfully
+  /orders:
+    get:
+      tags:
+        - orders
+      summary: Get all orders or a specific order by ID
+      parameters:
+        - in: query
+          name: _id
+          schema:
+            type: string
+          required: false
+          description: ID of the order to retrieve
+      responses:
+        '200':
+          description: Order(s) data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+  /users:
+    get:
+      tags:
+        - users
+      summary: Get all users
+      responses:
+        '200':
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+  /profile:
+    get:
+      tags:
+        - users information
+      summary: Get user profile
+      parameters:
+        - in: query
+          name: _id
+          schema:
+            type: string
+          required: false
+          description: ID of the user to retrieve
+      responses:
+        '200':
+          description: User profile data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+
+    put:
+      tags:
+        - users information
+      summary: Update user profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfile'
+      responses:
+        '200':
+          description: User profile updated successfully
+
+components:
+  schemas:
+    MenuItem:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        basePrice:
+          type: number
+        sizes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtraPrice'
+        extraIngredientPrices:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtraPrice'
+    ExtraPrice:
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+    Category:
+      type: object
+      properties:
+        name:
+          type: string
+    Order:
+      type: object
+      properties:
+        userEmail:
+          type: string
+        phone:
+          type: string
+        streetAddress:
+          type: string
+        postalCode:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        cartProducts:
+          type: object
+        paid:
+          type: boolean
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    UserInfo:
+      type: object
+      properties:
+        email:
+          type: string
+        phone:
+          type: string
+        streetAddress:
+          type: string
+        city:
+          type: string
+        admin:
+          type: boolean
+    UserProfile:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        image:
+          type: string
+        phone:
+          type: string
+        streetAddress:
+          type: string
+        city:
+          type: string
+        admin:
+          type: boolean
