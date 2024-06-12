@@ -82,3 +82,9 @@ Created **route.js** file for Swagger. A **swagger.yaml** file was also created,
 ![alt text](image-8.png)
 ![alt text](image-9.png)
 ![alt text](image-10.png)
+
+**!IMPORTANT!**
+The Stripe payment system is not currently connected to this application, therefore payment in the user's order basket is impossible and the order display logic does not work.
+
+**Link to Google Drive with a short video overview of the application:**
+https://drive.google.com/file/d/15wwR-xfJQX7cOJyx2tJ9IfmGrRVq97vW/view?usp=sharing
