@@ -39,13 +39,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Using the app
 
-![alt text](image.png)
-
 The application has **two options for use**:
 
 -Administrative page
 
 -User-client
+
+![alt text](image.png)
 
 To use the administrative page, you must have the status "admin", which is **assigned manually in the userInfos data collection** in MongoDB.
 With **"admin"** status, the user can add categories:
